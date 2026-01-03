@@ -30,7 +30,7 @@ def autostart():
     # ------------------ Functions ------------------
     def copy_self_to_startup():
         shutil.copy2(sys.argv[0], TARGET_SCRIPT)
-        print(f"✅ Copied script to Startup: {TARGET_SCRIPT}")
+        print(f" Copied script to Startup: {TARGET_SCRIPT}")
 
     def create_startup_bat():
         python_path = sys.executable
@@ -40,15 +40,15 @@ def autostart():
     """
         with open(TARGET_BAT, "w") as f:
             f.write(bat_content)
-        print(f"✅ Created startup .bat: {TARGET_BAT}")
+        print(f" Created startup .bat: {TARGET_BAT}")
 
     def self_delete():
         if os.path.exists(TARGET_SCRIPT):
             os.remove(TARGET_SCRIPT)
-            print(f"✅ Deleted script: {TARGET_SCRIPT}")
+            print(f" Deleted script: {TARGET_SCRIPT}")
         if os.path.exists(TARGET_BAT):
             os.remove(TARGET_BAT)
-            print(f"✅ Deleted bat: {TARGET_BAT}")
+            print(f" Deleted bat: {TARGET_BAT}")
         sys.exit()
     if not os.path.exists(TARGET_SCRIPT) and not is_admin():
         run_as_admin()
